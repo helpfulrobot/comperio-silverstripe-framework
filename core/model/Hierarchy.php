@@ -555,6 +555,9 @@ class Hierarchy extends DataObjectDecorator {
 
 		$filter = "\"{$baseClass}\".\"ParentID\" = " . (int)$this->owner->ID 
 			. " AND \"{$baseClass}\".\"ID\" != " . (int)$this->owner->ID;
+
+        //DNGMod: extraFilter was not used!!!
+        $filter .= $extraFilter;
 		
 		if($onlyDeletedFromStage) {
 			// Note that the lack of double-quotes around $baseClass are the only thing preventing

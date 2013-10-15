@@ -182,8 +182,9 @@ LinkForm.prototype = {
 				}
 				break;
 
-			case 'anchor':
-				href = '#' + this.elements.Anchor.value; 
+            case 'anchor':
+                //DNGMod: Added current_url shortcode (see liquens/_config.php)
+				href = '[current_url]#' + this.elements.Anchor.value;
 				if($('Form_EditorToolbarLinkForm_TargetBlank')) {
 					if($('Form_EditorToolbarLinkForm_TargetBlank').checked) target = '_blank';
 				}

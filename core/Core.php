@@ -167,6 +167,9 @@ define('CMS_DIR', 'cms');
 define('CMS_PATH', BASE_PATH . '/' . CMS_DIR);
 define('THIRDPARTY_DIR', SAPPHIRE_DIR . '/thirdparty');
 define('THIRDPARTY_PATH', BASE_PATH . '/' . THIRDPARTY_DIR);
+//DNGMOD
+if(!defined('ASSETS_DIR'))
+//END DNGMOD
 define('ASSETS_DIR', 'assets');
 define('ASSETS_PATH', BASE_PATH . '/' . ASSETS_DIR);
 
@@ -366,7 +369,9 @@ function stripslashes_recursively(&$array) {
  * @see i18n::_t()
  */
 function _t($entity, $string = "", $priority = 40, $context = "") {
-	return i18n::_t($entity, $string, $priority, $context);
+    //DNGMod
+    return _tdng($entity, $string, $priority, $context);
+	//return i18n::_t($entity, $string, $priority, $context);
 }
 
 /**

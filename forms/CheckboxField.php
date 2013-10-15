@@ -31,9 +31,17 @@ class CheckboxField extends FormField {
 			'tabindex' => $this->getTabIndex()
 		);
 		
+        //DNGMOD: see http://open.silverstripe.org/attachment/ticket/6288/checkboxfield.diff
+        $attributes_hidden = array(
+            'type' => 'hidden',
+            'name' => $this->Name(),
+            'value' => 0
+        );
+
 		if($this->disabled) $attributes['disabled'] = 'disabled';
 		
-		return $this->createTag('input', $attributes);
+        return $this->createTag('input', $attributes_hidden) . $this->createTag('input', $attributes);
+        //END DNGMOD
 	}
 
 	/**

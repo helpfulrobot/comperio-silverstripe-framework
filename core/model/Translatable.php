@@ -1169,6 +1169,9 @@ class Translatable extends DataObjectDecorator implements PermissionProvider {
 		
 		$newTranslation->ID = 0;
 		$newTranslation->Locale = $locale;
+
+        //DNGMod: do not copy widgets!
+        $newTranslation->resetAllWidgetAreas();
 		
 		$originalPage = $this->getTranslation(self::default_locale());
 		if ($originalPage) {

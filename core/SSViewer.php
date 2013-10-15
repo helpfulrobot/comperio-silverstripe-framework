@@ -549,11 +549,11 @@ class SSViewer {
 
 		// < % if val1 || val2 % >
 		$content = ereg_replace('<' . '% +if +([A-Za-z0-9_]+) *\\|\\|? *([A-Za-z0-9_]+) +%' . '>', '<? if($item->hasValue("\\1") || $item->hasValue("\\2")) { ?>', $content);
-		$content = ereg_replace('<' . '% +else_if +([A-Za-z0-9_]+) *\\|\\|? *([A-Za-z0-9_]+) +%' . '>', '<? else_if($item->hasValue("\\1") || $item->hasValue("\\2")) { ?>', $content);
+		$content = ereg_replace('<' . '% +else_if +([A-Za-z0-9_]+) *\\|\\|? *([A-Za-z0-9_]+) +%' . '>', '<? } else_if($item->hasValue("\\1") || $item->hasValue("\\2")) { ?>', $content);
 
 		// < % if val1 && val2 % >
 		$content = ereg_replace('<' . '% +if +([A-Za-z0-9_]+) *&&? *([A-Za-z0-9_]+) +%' . '>', '<? if($item->hasValue("\\1") && $item->hasValue("\\2")) { ?>', $content);
-		$content = ereg_replace('<' . '% +else_if +([A-Za-z0-9_]+) *&&? *([A-Za-z0-9_]+) +%' . '>', '<? else_if($item->hasValue("\\1") && $item->hasValue("\\2")) { ?>', $content);
+		$content = ereg_replace('<' . '% +else_if +([A-Za-z0-9_]+) *&&? *([A-Za-z0-9_]+) +%' . '>', '<? } else_if($item->hasValue("\\1") && $item->hasValue("\\2")) { ?>', $content);
 
 		// < % if val1 == val2 % >
 		$content = ereg_replace('<' . '% +if +([A-Za-z0-9_]+) *==? *"?([A-Za-z0-9_-]+)"? +%' . '>', '<? if($item->XML_val("\\1",null,true) == "\\2") {  ?>', $content);
