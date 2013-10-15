@@ -1,8 +1,8 @@
 {
-	"name": "silverstripe/framework",
+	"name": "comperio/silverstripe-framework",
 	"description": "The SilverStripe Framework",
 	"type": "silverstripe-module",
-	"keywords": ["silverstripe", "framework"],
+	"keywords": ["silverstripe", "framework", "dng", "comperio", "discoveryng"],
 	"homepage": "http://silverstripe.org",
 	"license": "BSD-3-Clause",
 	"authors": [
@@ -13,6 +13,11 @@
 		{
 			"name": "The SilverStripe Community",
 			"homepage": "http://silverstripe.org"
+		},
+		{
+			"name": "Nicolò Martini ",
+			"email": "nicmartnic@gmail.com",
+			"homepage": "http://nicolo.martini.io"
 		}
 	],
 	"require": {
