@@ -2793,7 +2793,10 @@ class DataObject extends ViewableData implements DataObjectInterface, i18nEntity
 	public static function get_one($callerClass, $filter = "", $cache = true, $orderby = "") {
 		$SNG = singleton($callerClass);
 
-		$cacheKey = "{$filter}-{$orderby}";
+                /* Aggiunta per lingua */
+                $locale = Translatable::get_current_locale();
+
+		$cacheKey = "{$filter}-{$orderby}-{$locale}";
 		if($extra = $SNG->extend('cacheKeyComponent')) {
 			$cacheKey .= '-' . implode("-", $extra);
 		}

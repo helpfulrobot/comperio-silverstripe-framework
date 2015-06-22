@@ -311,7 +311,7 @@ class Translatable extends DataObjectDecorator implements PermissionProvider {
 	 * @param string $orderby A sort expression to be inserted into the ORDER BY clause.
 	 * @return DataObject
 	 */
-	static function get_one_by_locale($class, $locale, $filter = '', $cache = false, $orderby = "") {
+	static function get_one_by_locale($class, $locale, $filter = '', $cache = true, $orderby = "") {
 		if($locale && !i18n::validate_locale($locale)) throw new InvalidArgumentException(sprintf('Invalid locale "%s"', $locale));
 		
 		$orig = Translatable::get_current_locale();
