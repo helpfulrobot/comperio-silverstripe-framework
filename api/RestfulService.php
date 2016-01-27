@@ -13,6 +13,7 @@ class RestfulService extends ViewableData {
 	protected $errorTag;
 	protected $checkErrors;
 	protected $cache_expire;
+        protected $timeoutRequest;
 	protected $authUsername, $authPassword;
 	protected $customHeaders = array();
 	protected $proxy;
@@ -40,10 +41,12 @@ class RestfulService extends ViewableData {
  	* Creates a new restful service.
  	* @param string $base Base URL of the web service eg: api.example.com 
  	* @param int $expiry Set the cache expiry interva. Defaults to 1 hour (3600 seconds)
+        * @param int $timeout (Defaults to 5 s)
  	*/
-	function __construct($base, $expiry=3600){
+	function __construct($base, $expiry=3600, $timeout=5){
 		$this->baseURL = $base;
 		$this->cache_expire = $expiry;
+                $this->timeoutRequest = $timeout;
 		$this->proxy = self::$default_proxy;
 		parent::__construct();
 	}
@@ -130,7 +133,7 @@ class RestfulService extends ViewableData {
 			
 		} else {
 			$ch = curl_init();
-			$timeout = 5;
+			$timeout = $this->timeoutRequest;
 			$useragent = "SilverStripe/" . SapphireInfo::Version();
 			curl_setopt($ch, CURLOPT_URL, $url);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
